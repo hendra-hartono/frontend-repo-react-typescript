@@ -1,50 +1,24 @@
-# React + TypeScript + Vite
+# Frontend (React - TypeScript)
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Pages
+- Login : You need to input email and password, in this case we are going to log in as doctor (Please see instructions on the backend repo)
+- Patients
+- Appointments (Doctor's Appointments)
 
-Currently, two official plugins are available:
+## Patients Page
+- On List Page : There is a search bar to find patients by name or email. Click patient name to go to the detail page
+- On Detail Page : You can have the diagnoses/medications/allergies/upcoming appointments for the patient
+- Decrypted Data : diagnoses, medications and allergies
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Getting Started
+To get started, follow these steps:
+1. Clone this repository to your local machine.
+2. Run `npm install` to install the required dependencies.
+3. You'll have to run the backend service first.
+4. Run `npm run dev` to start the web server - it will run on localhost:5173
 
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
-
-- Configure the top-level `parserOptions` property like this:
-
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
-
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
-
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
-
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
-```
+## Main Packages
+1. React Query to handle data fetching e.g. `src/hooks/usePatients.ts`
+2. Material-UI is used as UI Library
+3. socket.io-client to handle realtime communication i.e. `src/hooks/useSocket.ts` `src/pages/AppointmentPage.tsx`
+4. Zod to handle validation
